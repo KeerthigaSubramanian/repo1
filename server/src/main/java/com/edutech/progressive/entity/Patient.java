@@ -1,8 +1,8 @@
 package com.edutech.progressive.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
-public class Patient {
+public class Patient implements Comparable<Patient>{
 
     private int patientId;
     private String fullName;
@@ -56,6 +56,11 @@ public class Patient {
     }
     public void setAddress(String address) {
         this.address = address;
+    }
+    
+    @Override
+    public int compareTo(Patient o) {
+        return this.fullName.compareToIgnoreCase(o.fullName);
     }
     
     
