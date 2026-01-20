@@ -7,6 +7,8 @@ public class Doctor implements Comparable<Doctor> {
     private String contactNumber;
     private String email;
     private int yearsOfExperience;
+    public Doctor() {
+    }
 
     
     public Doctor(int doctorId, String fullName, String specialty, String contactNumber, String email,
@@ -19,8 +21,7 @@ public class Doctor implements Comparable<Doctor> {
         this.yearsOfExperience = yearsOfExperience;
     }
 
-    public Doctor() {
-    }
+    
     
     public int getDoctorId() {
         return doctorId;

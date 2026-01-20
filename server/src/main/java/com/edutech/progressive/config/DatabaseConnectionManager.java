@@ -8,28 +8,24 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DatabaseConnectionManager {
+
     private static final Properties properties = new Properties();
+    
+    private static void loadProperties(){
 
-    private static void loadProperties()
-    {
-        //String propfilename=application.properties;
-        InputStream input=DatabaseConnectionManager.class.getClassLoader().getResourceAsStream("application.properties");
-        try{
+        try {
+            InputStream input = DatabaseConnectionManager.class.getClassLoader().getResourceAsStream("application.properties");
             properties.load(input);
-
-        }catch(IOException e)
-        {
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
-    public static Connection getConnection()throws SQLException,IOException
-    {
+    public static Connection getConnection() throws SQLException{
         loadProperties();
-        String url=properties.getProperty("spring.datasource.url");
-        String username=properties.getProperty("spring.datasource.username");
-        String password=properties.getProperty("spring.datasource.password");
+        String url = properties.getProperty("spring.datasource.url");
+        String username = properties.getProperty("spring.datasource.username");
+        String password = properties.getProperty("spring.datasource.password");
         return DriverManager.getConnection(url, username, password);
     }
-
-
 }

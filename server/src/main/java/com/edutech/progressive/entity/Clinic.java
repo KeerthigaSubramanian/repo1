@@ -7,6 +7,14 @@ public class Clinic {
     private int doctorId;
     private String contactNumber;
     private int establishedYear;
+
+    // private Doctor doctor;
+    // public Doctor getDoctor() {
+    //     return doctor;
+    // }
+    // public void setDoctor(Doctor doctor) {
+    //     this.doctor = doctor;
+    // }
     public Clinic() {
     }
     public Clinic(int clinicId, String clinicName, String location, int doctorId, String contactNumber,
