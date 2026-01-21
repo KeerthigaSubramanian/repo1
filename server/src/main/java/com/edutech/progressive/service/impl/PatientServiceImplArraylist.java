@@ -7,11 +7,10 @@ import java.util.List;
 
 import com.edutech.progressive.entity.Patient;
 import com.edutech.progressive.service.PatientService;
-
+// @Service
 public class PatientServiceImplArraylist implements PatientService {
-
     private static List<Patient> patientList = new ArrayList<>();
-
+    
     @Override
     public List<Patient> getAllPatients() {
         return patientList;
@@ -19,34 +18,27 @@ public class PatientServiceImplArraylist implements PatientService {
 
     @Override
     public Integer addPatient(Patient patient) {
-        // patientList.add(patient);
         patientList.add(patient);
         return patient.getPatientId();
-
     }
 
     @Override
     public List<Patient> getAllPatientSortedByName() {
-        Collections.sort(patientList,nameComparatotor);
+        Collections.sort(patientList, NameComparator);
         return patientList;
     }
 
-    @Override
-    public void emptyArrayList() {
-       
-    }
-
-    public static Comparator<Patient> nameComparatotor= new Comparator<Patient>() {
+    public static Comparator<Patient> NameComparator = new Comparator<Patient>() {
 
         @Override
         public int compare(Patient arg0, Patient arg1) {
-            return arg0.getFullName().compareToIgnoreCase(arg1.getFullName());
+            return arg0.getFullName().compareTo(arg1.getFullName());
         }
         
     };
 
-    
-
-
+    public void emptyArrayList(){
+        patientList.clear();
+    }
 
 }
