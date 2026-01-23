@@ -25,7 +25,7 @@ public class PatientController {
     private PatientServiceImplJpa patientServiceImplJpa;
 
     @Autowired
-    PatientServiceImplArraylist patientServiceImplArraylist;   
+    PatientServiceImplArraylist patientServiceImplArraylist;
 
     @GetMapping
     public ResponseEntity<List<Patient>> getAllPatients() {
@@ -55,7 +55,6 @@ public class PatientController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
 
     @PutMapping("/{patientId}")
     public ResponseEntity<Void> updatePatient(@PathVariable int patientId,@RequestBody Patient patient) {
