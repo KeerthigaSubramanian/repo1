@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Doctor")
+@Table(name = "doctor")
 public class Doctor implements Comparable<Doctor> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,8 +19,6 @@ public class Doctor implements Comparable<Doctor> {
     private int yearsOfExperience;
     public Doctor() {
     }
-
-    
     public Doctor(int doctorId, String fullName, String specialty, String contactNumber, String email,
             int yearsOfExperience) {
         this.doctorId = doctorId;
@@ -30,9 +28,6 @@ public class Doctor implements Comparable<Doctor> {
         this.email = email;
         this.yearsOfExperience = yearsOfExperience;
     }
-
-    
-    
     public int getDoctorId() {
         return doctorId;
     }
@@ -45,41 +40,39 @@ public class Doctor implements Comparable<Doctor> {
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
-    
     public String getSpecialty() {
         return specialty;
     }
     public void setSpecialty(String specialty) {
         this.specialty = specialty;
     }
-    
     public String getContactNumber() {
         return contactNumber;
     }
     public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
-    
     public String getEmail() {
         return email;
     }
     public void setEmail(String email) {
         this.email = email;
     }
-    
     public int getYearsOfExperience() {
         return yearsOfExperience;
     }
     public void setYearsOfExperience(int yearsOfExperience) {
         this.yearsOfExperience = yearsOfExperience;
     }
-
+    
     @Override
     public int compareTo(Doctor o) {
-       return Integer.compare(this.yearsOfExperience, o.yearsOfExperience);
+        return Integer.compare(this.yearsOfExperience, o.yearsOfExperience);
     }
-    
-
-
-
+    @Override
+    public String toString() {
+        return "Doctor [doctorId=" + doctorId + ", fullName=" + fullName + ", specialty=" + specialty
+                + ", contactNumber=" + contactNumber + ", email=" + email + ", yearsOfExperience=" + yearsOfExperience
+                + "]";
+    }
 }
